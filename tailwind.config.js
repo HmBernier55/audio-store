@@ -13,6 +13,8 @@ export default {
         'hero-desktop': "url('/src/assets/home/desktop/image-hero.jpg')",
         'hero-tablet': "url('/src/assets/home/tablet/image-header.jpg')",
         'hero-mobile': "url('/src/assets/home/mobile/image-header.jpg')",
+        'circles':  "url('/src/assets/home/desktop/pattern-circles.svg')",
+        'zx7-speaker': "url('src/assets/home/desktop/image-speaker-zx7.jpg')",
       }
     },
   },
