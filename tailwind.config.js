@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'manrope': 'Manrope',
+      },
+      backgroundImage: {
+        'hero-desktop': "url('/src/assets/home/desktop/image-hero.jpg')",
+        'hero-tablet': "url('/src/assets/home/tablet/image-header.jpg')",
+        'hero-mobile': "url('/src/assets/home/mobile/image-header.jpg')",
+      }
+    },
   },
   plugins: [],
 }
