@@ -15,6 +15,11 @@ export default {
         'hero-mobile': "url('/src/assets/home/mobile/image-header.jpg')",
         'circles':  "url('/src/assets/home/desktop/pattern-circles.svg')",
         'zx7-speaker': "url('src/assets/home/desktop/image-speaker-zx7.jpg')",
+      },
+      colors: {
+        'orange-button': '#D87D4A',
+        'orange-hover': '#FBAF85',
+        'black-hover': '#4C4C4C',
       }
     },
   },
