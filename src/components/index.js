@@ -5,6 +5,8 @@ import CategoryCardContainer from './CategoryCardContainer';
 import AboutFooter from './AboutFooter';
 import Nav from './header/Nav';
 import ProductLink from './ProductLink';
+import Counter from './Counter';
+import OtherProductLink from './OtherProductLink';
 
 export {
   Header,
@@ -13,5 +15,7 @@ export {
   CategoryCardContainer,
   AboutFooter,
   Nav,
-  ProductLink
+  ProductLink,
+  Counter,
+  OtherProductLink
 }

@@ -18,18 +18,20 @@ const CategoryPage = () => {
 
   return (
     <div className='flex flex-col items-center'>
-      <div className='bg-black h-60 flex justify-center items-center mb-40 w-full'>
+      <div className='bg-black h-60 flex justify-center items-center w-full'>
         <h1 className='text-white text-5xl font-semibold tracking-[1px] uppercase'>{category}</h1>
       </div>
-      <div className='flex flex-col items-center gap-40'>
+      <div className='flex flex-col items-center'>
         {data.map(product => (
           <ProductLink
-            image={`.${product.categoryImage.desktop}`}
+            image={product.categoryImage.desktop}
             name={product.name}
             description={product.description}
             newProduct={product.new}
             url={`/${product.category}/${product.slug}`}
             key={product.id}
+            price={product.price}
+            btnText='SEE PRODUCT'
           />
         ))}
       </div>
