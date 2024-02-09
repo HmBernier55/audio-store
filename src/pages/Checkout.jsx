@@ -1,18 +1,40 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { CartProduct, CheckoutModal } from '../components/index';
 import CashCheckout from '../assets/checkout/icon-cash-on-delivery.svg';
+import { toggleConfirmation } from '../store/checkoutSlice';
 
 const Checkout = () => {
 
   const [isEMoneyChecked, setIsEMoneyChecked] = useState(true);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+  const [zip, setZip] = useState('');
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
+  const [moneyNumber, setMoneyNumber] = useState('');
+  const [pin, setPin] = useState('');
+
+  const cart = useSelector(state => state.cart);
+  const checkout = useSelector(state => state.checkout);
+
+  const dispatch = useDispatch();
 
   const handleRadioChange = () => {
     setIsEMoneyChecked(prev => !prev)
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   return (
     <div className='flex justify-center bg-[#F2F2F2]'>
-      <div className='flex w-[65vw] gap-7 my-36'>
+      {!checkout.showConfirmation &&
+        <form onSubmit={handleSubmit} className='flex w-[65vw] gap-7 my-36'>
         <div className='flex flex-col w-2/3 bg-white px-12 rounded-lg'>
           <h1 className='mt-14 mb-10 text-3xl tracking-[1px] font-semibold'>CHECKOUT</h1>
           <div className='flex flex-col'>
@@ -25,6 +47,9 @@ const Checkout = () => {
                   className='border border-[#CFCFCF] rounded-lg h-14 indent-6 focus:outline-orange-button'
                   type="text"
                   placeholder='Name'
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
                 />
               </div>
               <div className='flex flex-col gap-2 w-1/2'>
@@ -34,6 +59,9 @@ const Checkout = () => {
                   className='border border-[#CFCFCF] rounded-lg h-14 indent-6 focus:outline-orange-button'
                   type="email"
                   placeholder='Email Address'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -44,6 +72,9 @@ const Checkout = () => {
                 className='border border-[#CFCFCF] rounded-lg h-14 w-1/2 indent-6 focus:outline-orange-button'
                 type="tel"
                 placeholder='Phone Number'
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
               />
             </div>
           </div>
@@ -56,6 +87,9 @@ const Checkout = () => {
                 className='border border-[#CFCFCF] rounded-lg h-14 indent-6 focus:outline-orange-button'
                 type="text"
                 placeholder='Address'
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                required
               />
             </div>
             <div className='flex gap-4 mb-6'>
@@ -66,6 +100,9 @@ const Checkout = () => {
                   className='border border-[#CFCFCF] rounded-lg h-14 indent-6 focus:outline-orange-button'
                   type="text"
                   placeholder='ZIP Code'
+                  value={zip}
+                  onChange={(e) => setZip(e.target.value)}
+                  required
                 />
               </div>
               <div className='flex flex-col gap-2 w-1/2'>
@@ -75,6 +112,9 @@ const Checkout = () => {
                   className='border border-[#CFCFCF] rounded-lg h-14 indent-6  focus:outline-orange-button'
                   type="text"
                   placeholder='City'
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -85,6 +125,9 @@ const Checkout = () => {
                 className='border border-[#CFCFCF] rounded-lg h-14 w-1/2 indent-6 focus:outline-orange-button'
                 type="text"
                 placeholder='Country'
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                required
               />
             </div>
           </div>
@@ -122,6 +165,8 @@ const Checkout = () => {
                   id='card-num'
                   className='border border-[#CFCFCF] rounded-lg h-14 indent-6 focus:outline-orange-button'
                   type="text"
+                  value={moneyNumber}
+                  onChange={(e) => setMoneyNumber(e.target.value)}
                 />
               </div>
               <div className='flex flex-col gap-2 w-1/2'>
@@ -130,6 +175,8 @@ const Checkout = () => {
                   id='card-pin'
                   className='border border-[#CFCFCF] rounded-lg h-14 indent-6 focus:outline-orange-button'
                   type="text"
+                  value={pin}
+                  onChange={(e) => setPin(e.target.value)}
                 />
               </div>
             </div>
@@ -143,25 +190,39 @@ const Checkout = () => {
         </div>
         <div className='flex flex-col w-1/3 bg-white rounded-lg h-fit px-7'>
           <h3 className='font-bold text-lg tracking-[1px] my-8'>SUMMARY</h3>
+          <div className='flex flex-col gap-6'>
+            {cart.items.map(cartItem => (
+              <CartProduct
+              key={cartItem.id}
+              data={cartItem.productInfo}
+              cartItemId={cartItem.id}
+              />
+            ))}
+          </div>
           <div className='flex justify-between mb-2 mt-8'>
             <p className='opacity-50'>TOTAL</p>
-            <p className='font-bold text-lg'>$5,000</p>
+            <p className='font-bold text-lg'>{`$ ${cart.total}`}</p>
           </div>
           <div className='flex justify-between mb-2'>
             <p className='opacity-50'>SHIPPING</p>
-            <p className='font-bold text-lg'>$50</p>
+            <p className='font-bold text-lg'>$ 50</p>
           </div>
           <div className='flex justify-between mb-2'>
             <p className='opacity-50'>VAT (INCLUDED)</p>
-            <p className='font-bold text-lg'>$1,000</p>
+            <p className='font-bold text-lg'>{`$ ${Math.round(cart.total * 0.2)}`}</p>
           </div>
           <div className='flex justify-between mt-6'>
             <p className='opacity-50'>GRAND TOTAL</p>
-            <p className='font-bold text-lg text-orange-button'>$6,050</p>
+            <p className='font-bold text-lg text-orange-button'>{`$ ${cart.total + 50}`}</p>
           </div>
-          <button className='h-12 bg-orange-button text-white hover:bg-orange-hover text-sm font-semibold my-8'>CONTINUE & PAY</button>
+          <button
+            className='h-12 bg-orange-button text-white hover:bg-orange-hover text-sm font-semibold my-8'
+            onClick={() => dispatch(toggleConfirmation())}
+          >CONTINUE & PAY</button>
         </div>
-      </div>
+      </form>
+      }
+      {checkout.showConfirmation && <CheckoutModal />}
     </div>
   )
 }

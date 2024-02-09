@@ -9,6 +9,7 @@ import Counter from './Counter';
 import OtherProductLink from './OtherProductLink';
 import CartModal from './header/CartModal';
 import CartProduct from './header/CartProduct';
+import CheckoutModal from './CheckoutModal';
 
 export {
   Header,
@@ -21,5 +22,6 @@ export {
   Counter,
   OtherProductLink,
   CartModal,
-  CartProduct
+  CartProduct,
+  CheckoutModal
 }

@@ -1,7 +1,10 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  cart: [],
+  items: [],
+  total: 0,
+  totalItems: 0,
+  showCart: false,
 }
 
 export const cartSlice = createSlice({
@@ -10,10 +13,10 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const { id, product } = action.payload;
-      const itemExist = state.cart.filter(cartItem => cartItem.id === id);
+      const itemExist = state.items.filter(cartItem => cartItem.id === id);
 
       if (itemExist.length > 0) {
-        state.cart = state.cart.map(cartItem => {
+        state.items = state.items.map(cartItem => {
           if (cartItem.id === id) {
             cartItem.productInfo.quantity += product.quantity;
           }
@@ -24,18 +27,51 @@ export const cartSlice = createSlice({
           id: id,
           productInfo: product,
         }
-        state.cart.push(cartItem);
+        state.items.push(cartItem);
       }
+
+      state.total += (product.price * product.quantity);
+      state.totalItems += product.quantity;
     },
     removeFromCart: (state, action) => {
-      state.cart = state.cart.filter(cartItem => cartItem.id !== action.payload)
+      const { id, product } = action.payload;
+      state.items = state.items.filter(cartItem => cartItem.id !== id)
+      state.total -= (product.price * product.quantity);
+      state.totalItems -= product.quantity;
     },
     removeAll: (state) => {
-      state.cart = [];
-    }
+      state.items = [];
+      state.total = 0;
+      state.totalItems = 0;
+    },
+    addOneToCart: (state, action) => {
+      const { id, price } = action.payload;
+      state.items = state.items.map(cartItem => {
+        if (cartItem.id === id) {
+          cartItem.productInfo.quantity += 1;
+        }
+        return cartItem;
+      })
+      state.total += price;
+      state.totalItems += 1;
+    },
+    removeOneFromCart: (state, action) => {
+      const { id, price } = action.payload;
+      state.items = state.items.map(cartItem => {
+        if  (cartItem.id === id) {
+          cartItem.productInfo.quantity -= 1;
+        }
+        return cartItem;
+      })
+      state.total -= price;
+      state.totalItems -= 1;
+    },
+    toggleCart: (state) => {
+      state.showCart = !state.showCart;
+    },
   }
 })
 
-export const { addToCart, removeFromCart, removeAll } = cartSlice.actions;
+export const { addToCart, removeFromCart, removeAll, addOneToCart, removeOneFromCart, toggleCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
