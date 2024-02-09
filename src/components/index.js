@@ -7,6 +7,8 @@ import Nav from './header/Nav';
 import ProductLink from './ProductLink';
 import Counter from './Counter';
 import OtherProductLink from './OtherProductLink';
+import CartModal from './header/CartModal';
+import CartProduct from './header/CartProduct';
 
 export {
   Header,
@@ -17,5 +19,7 @@ export {
   Nav,
   ProductLink,
   Counter,
-  OtherProductLink
+  OtherProductLink,
+  CartModal,
+  CartProduct
 }

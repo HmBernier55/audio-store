@@ -32,13 +32,9 @@ const DetailPage = () => {
   return (
     <div className='flex flex-col items-center'>
       <ProductLink
-        image={data[0].categoryImage.desktop}
-        name={data[0].name}
-        description={data[0].description}
-        newProduct={data[0].new}
+        productData={data[0]}
         url='/'
         detailPage={true}
-        price={data[0].price}
         btnText='ADD TO CART'
       />
       <div className='flex w-[65vw] my-40 justify-between'>
@@ -68,8 +64,9 @@ const DetailPage = () => {
       <div className='flex flex-col items-center'>
         <h3 className='font-semibold text-3xl tracking-[1px] mb-16'>YOU MAY ALSO LIKE</h3>
         <div className='flex w-[65vw] gap-5'>
-          {data[0].others.map(otherProduct => (
+          {data[0].others.map((otherProduct, index) => (
             <OtherProductLink
+              key={index}
               slug={otherProduct.slug}
               name={otherProduct.name}
               category={otherProduct.category}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Counter = () => {
+const Counter = ({isCart = false}) => {
 
   const [count, setCount] = useState(0);
   const [isBtnDisabled, setIsBtnDisabled ] = useState(true);
@@ -19,15 +19,15 @@ const Counter = () => {
   };
 
   return (
-    <div className='flex h-12 bg-[#F1F1F1] items-center'>
+    <div className={`flex ${isCart ? 'h-8 w-24 px-3' : 'h-12 w-32 px-5'} bg-[#F1F1F1] items-center justify-between`}>
       <button
-        className={`pl-5 pr-3 font-bold opacity-25 ${isBtnDisabled ? '' : 'hover:text-orange-button'}`}
+        className={`font-bold opacity-25 ${isBtnDisabled ? '' : 'hover:text-orange-button'}`}
         onClick={subtract}
         disabled={isBtnDisabled}
       >-</button>
-      <p className='px-3 font-semibold'>{count}</p>
+      <p className='font-semibold'>{count}</p>
       <button
-        className='pl-3 pr-5 font-bold opacity-25 hover:text-orange-button'
+        className='font-bold opacity-25 hover:text-orange-button'
         onClick={add}
       >+</button>
     </div>

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import ReactLoading from 'react-loading';
+
 import { AboutFooter, CategoryCardContainer, ProductLink } from '../components/index';
 
 const CategoryPage = () => {
 
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const { category } = useParams();
 
   useEffect(() => {
@@ -13,8 +17,17 @@ const CategoryPage = () => {
       .then((response) => {
         const products = response.filter(product => product.category === category);
         setData(products);
+        setIsLoading(false);
       });
   }, [category])
+
+  if (isLoading) {
+    return (
+      <div className='flex justify-center'>
+        <ReactLoading type='spokes' color='#000000' height={150} width={150} className='flex items-center my-10' />
+      </div>
+    )
+  }
 
   return (
     <div className='flex flex-col items-center'>
@@ -24,13 +37,10 @@ const CategoryPage = () => {
       <div className='flex flex-col items-center'>
         {data.map(product => (
           <ProductLink
-            image={product.categoryImage.desktop}
-            name={product.name}
-            description={product.description}
+            productData={product}
             newProduct={product.new}
             url={`/${product.category}/${product.slug}`}
             key={product.id}
-            price={product.price}
             btnText='SEE PRODUCT'
           />
         ))}
