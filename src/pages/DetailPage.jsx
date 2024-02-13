@@ -12,7 +12,7 @@ const DetailPage = () => {
   const { category, slug } = useParams();
 
   useEffect(() => {
-    fetch('/src/api/productData.json')
+    fetch('/productData.json')
       .then((response) => response.json())
       .then((response) => {
         const product = response.filter(item => item.slug === slug);
