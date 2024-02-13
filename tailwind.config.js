@@ -14,9 +14,9 @@ export default {
         'hero-tablet': "url('/src/assets/home/tablet/image-header.jpg')",
         'hero-mobile': "url('/src/assets/home/mobile/image-header.jpg')",
         'circles':  "url('/src/assets/home/desktop/pattern-circles.svg')",
-        'zx7-speaker-desktop': "url('src/assets/home/desktop/image-speaker-zx7.jpg')",
-        'zx7-speaker-tablet': "url('src/assets/home/tablet/image-speaker-zx7.jpg')",
-        'zx7-speaker-mobile': "url('src/assets/home/mobile/image-speaker-zx7.jpg')",
+        'zx7-speaker-desktop': "url('/src/assets/home/desktop/image-speaker-zx7.jpg')",
+        'zx7-speaker-tablet': "url('/src/assets/home/tablet/image-speaker-zx7.jpg')",
+        'zx7-speaker-mobile': "url('/src/assets/home/mobile/image-speaker-zx7.jpg')",
       },
       colors: {
         'orange-button': '#D87D4A',
