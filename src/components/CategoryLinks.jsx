@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RightArrow from '../../public/assets/shared/desktop/icon-arrow-right.svg';
+import RightArrow from '/assets/shared/desktop/icon-arrow-right.svg';
 
 const CategoryLinks = ({thumbnail, category}) => {
   return (

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { CartProduct, CheckoutModal } from '../components/index';
-import CashCheckout from '../../public/assets/checkout/icon-cash-on-delivery.svg';
+import CashCheckout from '/assets/checkout/icon-cash-on-delivery.svg';
 import { toggleConfirmation } from '../store/checkoutSlice';
 
 const Checkout = () => {

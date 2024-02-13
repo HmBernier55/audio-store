@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Hamburger from '../../../public/assets/shared/tablet/icon-hamburger.svg';
-import Logo from '../../../public/assets/shared/desktop/logo.svg';
-import Cart from '../../../public/assets/shared/desktop/icon-cart.svg';
+import Hamburger from '/assets/shared/tablet/icon-hamburger.svg';
+import Logo from '/assets/shared/desktop/logo.svg';
+import Cart from '/assets/shared/desktop/icon-cart.svg';
 
 import { Nav, CartModal, CategoryCardContainer } from '../index';
 import { toggleCart } from '../../store/cartSlice';
@@ -31,7 +31,7 @@ const Header = () => {
         <img src={Logo} alt='logo' className='' />
       </Link>
       {isOpen &&
-        <div onClick={toggleNav} className='absolute left-0 top-full w-full bg-white flex items-center justify-center py-14 h-fit'>
+        <div onClick={toggleNav} className='absolute left-0 top-full w-full bg-white flex items-center justify-center py-14 h-fit overflow-y-auto'>
           <CategoryCardContainer />
         </div>
       }
