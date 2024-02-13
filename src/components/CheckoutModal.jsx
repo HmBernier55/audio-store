@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { CartProduct } from './index';
-import OrderConfirmation from '../assets/checkout/icon-order-confirmation.svg';
+import OrderConfirmation from '../../public/assets/checkout/icon-order-confirmation.svg';
 import { removeAll } from '../store/cartSlice';
 import { toggleConfirmation } from '../store/checkoutSlice';
 

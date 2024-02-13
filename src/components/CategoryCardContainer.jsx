@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { CategoryLinks } from '../components/index';
-import HeadphonesThumbnail from '../assets/shared/desktop/image-category-thumbnail-headphones.png';
-import SpeakerThumbnail from '../assets/shared/desktop/image-category-thumbnail-speakers.png';
-import EarphonesThumbnail from '../assets/shared/desktop/image-category-thumbnail-earphones.png';
+import HeadphonesThumbnail from '../../public/assets/shared/desktop/image-category-thumbnail-headphones.png';
+import SpeakerThumbnail from '../../public/assets/shared/desktop/image-category-thumbnail-speakers.png';
+import EarphonesThumbnail from '../../public/assets/shared/desktop/image-category-thumbnail-earphones.png';
 
 const CategoryCardContainer = () => {
   return (

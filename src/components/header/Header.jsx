@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Hamburger from '../../assets/shared/tablet/icon-hamburger.svg';
-import Logo from '../../assets/shared/desktop/logo.svg';
-import Cart from '../../assets/shared/desktop/icon-cart.svg';
+import Hamburger from '../../../public/assets/shared/tablet/icon-hamburger.svg';
+import Logo from '../../../public/assets/shared/desktop/logo.svg';
+import Cart from '../../../public/assets/shared/desktop/icon-cart.svg';
 
 import { Nav, CartModal, CategoryCardContainer } from '../index';
 import { toggleCart } from '../../store/cartSlice';

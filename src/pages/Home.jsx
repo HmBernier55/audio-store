@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { CategoryCardContainer, AboutFooter } from '../components/index';
-import SpeakerZX9 from '../assets/home/desktop/image-speaker-zx9.png';
-import Circles from '../assets/home/desktop/pattern-circles.svg';
-import EarphonesYX1 from '../assets/home/desktop/image-earphones-yx1.jpg';
+import SpeakerZX9 from '../../public/assets/home/desktop/image-speaker-zx9.png';
+import Circles from '../../public/assets/home/desktop/pattern-circles.svg';
+import EarphonesYX1 from '../../public/assets/home/desktop/image-earphones-yx1.jpg';
 
 const Home = () => {
 

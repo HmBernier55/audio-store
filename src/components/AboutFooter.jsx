@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BestGear from '../assets/shared/desktop/image-best-gear.jpg';
+import BestGear from '../../public/assets/shared/desktop/image-best-gear.jpg';
 
 const AboutFooter = () => {
   return (
