@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { CategoryLinks } from '../components/index';
 import HeadphonesThumbnail from '../assets/shared/desktop/image-category-thumbnail-headphones.png';
@@ -8,25 +8,25 @@ import EarphonesThumbnail from '../assets/shared/desktop/image-category-thumbnai
 
 const CategoryCardContainer = () => {
   return (
-    <div className='flex gap-[30px] mt-[120px]'>
-        <Link to='/headphones'>
+    <div className='flex flex-col gap-4 md:flex-row md:gap-2 lg:gap-[30px]'>
+        <NavLink to='/headphones'>
           <CategoryLinks
             thumbnail={HeadphonesThumbnail}
             category='headphones'
           />
-        </Link>
-        <Link to='/speakers'>
+        </NavLink>
+        <NavLink to='/speakers'>
           <CategoryLinks
             thumbnail={SpeakerThumbnail}
             category='speakers'
           />
-        </Link>
-        <Link to='/earphones'>
+        </NavLink>
+        <NavLink to='/earphones'>
           <CategoryLinks
             thumbnail={EarphonesThumbnail}
             category='earphones'
           />
-        </Link>
+        </NavLink>
       </div>
   )
 }

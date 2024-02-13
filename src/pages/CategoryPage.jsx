@@ -32,9 +32,9 @@ const CategoryPage = () => {
   return (
     <div className='flex flex-col items-center'>
       <div className='bg-black h-60 flex justify-center items-center w-full'>
-        <h1 className='text-white text-5xl font-semibold tracking-[1px] uppercase'>{category}</h1>
+        <h1 className='text-white text-3xl font-semibold tracking-[1px] uppercase sm:text-5xl'>{category}</h1>
       </div>
-      <div className='flex flex-col items-center'>
+      <div className='flex flex-col items-center gap-16 mb-28 lg:gap-40'>
         {data.map(product => (
           <ProductLink
             productData={product}

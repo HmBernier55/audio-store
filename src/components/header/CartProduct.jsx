@@ -33,7 +33,7 @@ const CartProduct = ({data, cartItemId, checkout = false}) => {
 
   return (
     <div className='flex justify-between items-center'>
-      <div className='flex items-center gap-4'>
+      <div className='flex items-center gap-2 sm:gap-3'>
         <img className='h-16 w-16 rounded-lg' src={new URL(data.image, import.meta.url).href} alt="product image" />
         <div>
           <p className='font-bold'>{data.name}</p>
@@ -41,8 +41,8 @@ const CartProduct = ({data, cartItemId, checkout = false}) => {
         </div>
       </div>
       {!checkout &&
-        <div className='flex gap-3 items-center'>
-          <div className={`flex h-8 w-24 px-3 bg-[#F1F1F1] items-center justify-between`}>
+        <div className='flex gap-2 items-center sm:gap-3'>
+          <div className='flex h-8 w-20 px-3 bg-[#F1F1F1] items-center justify-between sm:w-24'>
             <button
               className='font-bold opacity-25 hover:text-orange-button'
               onClick={subtract}

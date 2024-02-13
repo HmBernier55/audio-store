@@ -19,8 +19,8 @@ const CartModal = () => {
 
   return (
     <div className='absolute top-24 left-0'>
-      <div className='absolute h-screen w-screen bg-[#979797] opacity-50 z-10'></div>
-      <div className='absolute bg-white z-50 top-8 left-[70vw] w-[377px] h-fit px-8 flex flex-col rounded-lg'>
+      <div className='relative h-screen w-screen bg-[#979797] opacity-50 z-10'></div>
+      <div className='absolute bg-white z-50 top-8 left-[5%] w-[327px] px-4 h-fit flex flex-col rounded-lg sm:px-8 sm:left-1/4 sm:w-[377px] md:left-[40%] lg:left-1/2 xl:left-2/3'>
         <div className='flex justify-between my-8'>
           <p className='font-bold tracking-[1px] text-lg'>{`CART (${cart.totalItems})`}</p>
           <button

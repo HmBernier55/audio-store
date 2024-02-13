@@ -37,13 +37,13 @@ const DetailPage = () => {
         detailPage={true}
         btnText='ADD TO CART'
       />
-      <div className='flex w-[65vw] my-40 justify-between'>
-        <div className='w-2/3 flex flex-col gap-8'>
-          <h2 className='font-semibold text-3xl tracking-[1px]'>FEATURES</h2>
+      <div className='flex flex-col w-[85vw] my-20 gap-20 lg:my-40 lg:justify-between lg:w-[65vw]'>
+        <div className='flex flex-col gap-8 lg:w-2/3'>
+          <h2 className='font-semibold text-2xl tracking-[1px] lg:text-3xl'>FEATURES</h2>
           <p className='opacity-50'>{data[0].features}</p>
         </div>
         <div className='flex flex-col gap-8'>
-          <h2 className='font-semibold text-3xl tracking-[1px]'>IN THE BOX</h2>
+          <h2 className='font-semibold text-2xl tracking-[1px] lg:text-3xl'>IN THE BOX</h2>
           <div className='flex flex-col gap-2'>
             {data[0].includes.map(addOn => (
               <div key={addOn.item} className='flex gap-6'>
@@ -54,16 +54,16 @@ const DetailPage = () => {
           </div>
         </div>
       </div>
-      <div className='flex w-[65vw] h-[592px] gap-8 mb-40'>
-        <div className='flex flex-col h-full w-[45%] justify-between'>
-          <img className='h-[47%] w-full object-cover rounded-lg' src={new URL(data[0].gallery.first.desktop, import.meta.url).href} alt="gallery photo" />
-          <img className='h-[47%] w-full object-cover rounded-lg' src={new URL(data[0].gallery.second.desktop, import.meta.url).href} alt="gallery photo" />
+      <div className='flex flex-col w-[85vw] gap-5 mb-28 sm:flex-row sm:h-[592px] lg:w-[65vw] lg:gap-8'>
+        <div className='flex flex-col gap-5 sm:h-full sm:w-[45%] sm:justify-between'>
+          <img className='object-cover rounded-lg sm:h-[47%] sm:w-full' src={new URL(data[0].gallery.first.desktop, import.meta.url).href} alt="gallery photo" />
+          <img className='object-cover rounded-lg sm:h-[47%] sm:w-full' src={new URL(data[0].gallery.second.desktop, import.meta.url).href} alt="gallery photo" />
         </div>
-        <img className='w-[55%] h-full object-cover rounded-lg' src={new URL(data[0].gallery.third.desktop, import.meta.url).href} alt="gallery photo" />
+        <img className='object-cover rounded-lg sm:w-[55%] sm:h-full' src={new URL(data[0].gallery.third.desktop, import.meta.url).href} alt="gallery photo" />
       </div>
-      <div className='flex flex-col items-center'>
-        <h3 className='font-semibold text-3xl tracking-[1px] mb-16'>YOU MAY ALSO LIKE</h3>
-        <div className='flex w-[65vw] gap-5'>
+      <div className='flex flex-col items-center mt-28 mb-28'>
+        <h3 className='font-semibold text-2xl tracking-[1px] mb-10 sm:text-3xl lg:mb-16'>YOU MAY ALSO LIKE</h3>
+        <div className='flex flex-col w-[85vw] gap-14 md:gap-5 md:flex-row lg:w-[65vw]'>
           {data[0].others.map((otherProduct, index) => (
             <OtherProductLink
               key={index}

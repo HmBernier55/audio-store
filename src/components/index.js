@@ -5,7 +5,6 @@ import CategoryCardContainer from './CategoryCardContainer';
 import AboutFooter from './AboutFooter';
 import Nav from './header/Nav';
 import ProductLink from './ProductLink';
-import Counter from './Counter';
 import OtherProductLink from './OtherProductLink';
 import CartModal from './header/CartModal';
 import CartProduct from './header/CartProduct';
@@ -19,7 +18,6 @@ export {
   AboutFooter,
   Nav,
   ProductLink,
-  Counter,
   OtherProductLink,
   CartModal,
   CartProduct,
