@@ -1,8 +1,15 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Audiophile - React Front-End Site
+![Audiophile-screenshot](./public/assets/audio-store.png)
+#### [Audiophile Site](https://audio-store.netlify.app/)
+### Author:
+Hunter Bernier
+### Description:
+This is an e-commerce site selling headphones, earphones, and speakers. It incorporates four pages: Home, headphones landing page, speakers landing page, and an earphones landing page using React-Router-DOM. It also includes a working cart and custom checkout page. The designs for the site were supplied through Frontend Mentor.
+### Languages and Libraries Used:
+- React
+- JavaScript
+- HTML
+- Tailwind
+- React-Router-DOM
+- React-Redux
+- Redux-Toolkit
